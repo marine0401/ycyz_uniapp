@@ -1,0 +1,80 @@
+
+.charts-box{
+	
+	margin-top: 100rpx;
+	margin-bottom: 5rpx;
+}
+.box{
+	height: 100rpx;
+	display: flex;
+	flex-direction: row;
+	background-color: aliceblue;
+}
+.box1{
+	width: 100%;
+	height: 80rpx;
+	display: flex;
+	flex-direction: row;
+	margin-top: 5rpx;
+	margin-bottom: 5rpx;
+}
+.j1{
+	width:10%;
+	height: 80rpx;
+}
+.j2{
+	width: 70%;
+	height: 80rpx;
+	line-height: 80rpx;
+	text-align: left;
+	margin-left: 30rpx;
+}
+.j3{
+	width:20%;
+	height: 80rpx;
+	line-height: 70rpx;
+	text-align: center;
+}
+.b1{
+	width: 50%;
+	height: 100rpx;
+	color: black;
+	background-color: aqua;
+	text-align: center;
+	line-height: 100rpx;
+	margin-right: 1rpx;
+}
+.b5{
+	width: 50%;
+	height: 100rpx;
+	color: black;
+	background-color: aqua;
+	text-align: center;
+	line-height: 100rpx;
+}
+.b4{
+	width: 33%;
+	height: 100rpx;
+	color: black;
+	line-height: 100rpx;
+	background-color: skyblue;
+	text-align: center;
+	margin-right: 1rpx;
+	margin-left: 1rpx;
+}
+.b2{
+	width: 33%;
+	line-height: 100rpx;
+	height: 100rpx;
+	color: black;
+	background-color: grey;
+	text-align: center;
+	margin-right: 1rpx;
+	margin-left: 1rpx;
+}
+.icon{
+	width: 80rpx;
+	height: 80rpx;
+}
+
+

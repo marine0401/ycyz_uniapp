@@ -1,0 +1,100 @@
+
+.login-content.data-v-9d0e0546 {
+		padding: 70px 10px 35px;
+		text-align: center;
+		color: #333333;
+		height: 1280rpx;
+		background-image: url("https://ts1.cn.mm.bing.net/th/id/R-C.6ef6b865d5315954ab33c47d0ac7e031?rik=M2VpFdjBpXMA1Q&riu=http%3a%2f%2fimg.zcool.cn%2fcommunity%2f0157955848b69ea801219c77902534.jpg%401280w_1l_2o_100sh.png&ehk=PLTRRxiQ94ZzpTNWxsERO43xyBZSaE79k7plB3rv6a0%3d&risl=&pid=ImgRaw&r=0");
+		background-size: cover;
+		box-sizing: border-box;
+}
+.login-title.data-v-9d0e0546 {
+		font-size: 26px;
+		font-weight: bold;
+		margin-bottom: 31px;
+		margin-top: 150rpx;
+}
+.account.data-v-9d0e0546{
+		align-self: center;
+		display: flex;
+		flex-direction: row;
+		
+		border-bottom: black;
+		
+		border-color: black;
+		border-style: solid;
+		border-width: 1rpx;
+		border-top: 0;
+		border-right: 0;
+		border-left: 0;
+}
+.password.data-v-9d0e0546{
+		align-self: center;
+		display: flex;
+		flex-direction: row;
+		border-width: 2rpx;
+		border-color: black;
+		border-style: solid;
+		border-width: 1rpx;
+		border-top: 0;
+		border-right: 0;
+		border-left: 0;
+}
+.i1.data-v-9d0e0546{
+		position: relative;
+		top: 20rpx;
+}
+.i2.data-v-9d0e0546 {
+		position: relative;
+		top: 20rpx;
+		right: 30rpx;
+}
+.password-btn.data-v-9d0e0546 {
+		color: #ff8b33;
+		font-size: 15px;
+		text-align: right;
+}
+.logon-btn.data-v-9d0e0546{
+		width: 400rpx;
+		height: 60rpx;
+		background: #0055ff;
+		border-radius: 36rpx;
+		color: #fff;
+		font-size: 45rpx;
+		text-align: center;
+		line-height: 60rpx;
+		align-self: center;
+		bottom: 60rpx;
+		margin-top: 100rpx;
+}
+.login-content input.data-v-9d0e0546 {
+		position: relative;
+		height:100rpx;
+		width: 800rpx;
+		background-color: transparent;
+		
+		border-radius: 50rpx;
+		text-align: left;
+		padding: 30rpx;
+		box-sizing: border-box;
+		font-size: 15px;
+		margin-left: auto;
+		margin-right: auto;
+}
+.login-btn.data-v-9d0e0546 {
+		width: 400rpx;
+		height: 60rpx;
+		background: #0055ff;
+		border-radius: 36rpx;
+		color: #fff;
+		font-size: 45rpx;
+		text-align: center;
+		line-height: 60rpx;
+		align-self: center;
+		bottom: 60rpx;
+		margin-top: 250rpx;
+}
+
+
+
+

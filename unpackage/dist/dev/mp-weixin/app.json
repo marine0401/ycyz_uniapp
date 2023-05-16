@@ -1,0 +1,18 @@
+{
+  "pages": [
+    "pages/index/login/login",
+    "pages/index/index",
+    "pages/index/index1/index1",
+    "pages/index/Navigator/Navigator",
+    "pages/index/chart_xianxiang/chart_xianxiang",
+    "pages/index/logon/logon"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#00aaff",
+    "backgroundColor": "#F8F8F8"
+  },
+  "usingComponents": {}
+}
