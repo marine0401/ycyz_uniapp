@@ -57,18 +57,17 @@
 
 <script>
 	import uCharts from '@/uni_modules/qiun-data-charts/js_sdk/u-charts/u-charts.js';
-	import{
-		_hTemper,
-		_lTemper,
-		_hPh,
-		_lPh,
-		_hOxygen,
-		_lOxygen,
-	}from"@/global.js"
+	
 import { parse } from 'uuid';
 	export default {
 		data() {
 			return {
+				hTemper:0,
+				lTemper:0,
+				hPh:0,
+				lPh:0,
+				hOxygen:0,
+				lOxygen:0,
 				text:"24小时",
 				average:0,
 				max:0,
@@ -127,14 +126,21 @@ import { parse } from 'uuid';
 			}
 		},
 		onReady() {
+			
 			this.getdata(this.attribute,this.devicename,"day",this.day_shift)
 		},
+		onLoad() {
+			
+			this.hTemper=getApp().globalData._hTemper
+			this.lTemper=getApp().globalData._lTemper
+			this.hPh=getApp().globalData._hPh
+			this.lPh=getApp().globalData._lPh
+			this.hOxygen=getApp().globalData._hOxygen
+			this.lOxygen=getApp().globalData._lOxygen
+			
+		},
 		methods: {
-			setColor(value){
-				if(value > 20){
-					return "red";
-				}
-			},
+			
 			resolve(data){
 				
 				this.chartsDataLine["series"][0]["name"] = this.attribute
@@ -154,7 +160,7 @@ import { parse } from 'uuid';
 					len = len + 1
 
  					if(this.attribute == "温度"){
-						if(value[var1]> _hTemper | value[var1] < _lTemper){
+						if(value[var1]> this.hTemper | value[var1] < this.lTemper){
 							exception_value.push(value[var1])
 						}else{
 							exception_value.push(null)
@@ -162,14 +168,14 @@ import { parse } from 'uuid';
 						
 					}
 					else if(this.attribute == "溶解氧浓度"){
-						if(value[var1]> _hOxygen | value[var1] < _lOxygen){
+						if(value[var1]> this.hOxygen | value[var1] < this.lOxygen){
 							exception_value.push(value[var1])
 						}else{
 							exception_value.push(null)
 						}
 						
 					}else if(this.attribute == "PH"){
-						if(value[var1]> _hPh | value[var1] < _lPh){
+						if(value[var1]> this.hPh | value[var1] < this.lPh){
 							exception_value.push(value[var1])
 						}else{
 							exception_value.push(null)

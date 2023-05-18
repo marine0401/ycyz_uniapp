@@ -8,7 +8,6 @@ const app = new Vue({
     ...App
 })
 app.$mount()
-import chunLeiModal from '@/components/chunLei-modal/chunLei-modal.vue'
 
 // #endif
 

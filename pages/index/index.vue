@@ -111,35 +111,23 @@
 
 <script>
 	
-	
-	
-	
-	const mqtt = require('node_modules/mqtt/dist/mqtt.min.js')
-	var message
-	var client
-	 import {
-	        MQTT_IP,
-	        MQTT_OPTIONS
-	    } from '@/mqttConfig.js';
-	import{
-		_hTemper,
-		_lTemper,
-		_hPh,
-		_lPh,
-		_hOxygen,
-		_lOxygen,
-	}from"@/global.js"
-	import {v4} from 'uuid'
+	import {
+		g_id,
+		g_ph,
+		g_oxygen,
+		g_temperature
+	} from "../../m_Common/m_common.js"
 	export default {
 		
 		data() {
 			return {
-				hTemper:_hTemper,
-				lTemper:_lTemper,
-				hPh:_hPh,
-				lPh:_lPh,
-				hOxygen:_hOxygen,
-				lOxygen:_lOxygen,
+				
+				hTemper:0,
+				lTemper:0,
+				hPh:0,
+				lPh:0,
+				hOxygen:0,
+				lOxygen:0,
 				data:"",
 				id:"",
 				ph:"",
@@ -147,20 +135,39 @@
 				oxygen:"",
 				wh:'',
 				show:false,
-				
-				title: message,
 				scrollTop: 0,
 				old: {
-					scrollTop: 0
+					scrollTop: 0,
 				}
 			}
-			
 		},
+	
 		onLoad() {
-			this.connect()
+			this.hTemper=getApp().globalData._hTemper;
+			this.lTemper=getApp().globalData._lTemper;
+			this.hPh=getApp().globalData._hPh;
+			this.lPh=getApp().globalData._lPh;
+			this.hOxygen=getApp().globalData._hOxygen;
+			this.lOxygen=getApp().globalData._lOxygen;
+			getApp().watch(this.getTemperature,'g_temperature')
+			getApp().watch(this.getId,'g_id')
+			getApp().watch(this.getOxygen,'g_oxygen')
+			getApp().watch(this.getPh,'g_ph')
 		},
+		
 		methods: {
-			
+		    getTemperature(val){
+		        this.temperature = val
+		    },
+			getId(val){
+			    this.id = val
+			},
+			getPh(val){
+			    this.ph = val
+			},
+			getOxygen(val){
+			    this.oxygen = val
+			},
 			alarm_set(attribute,titletext,placeholdertext){
 				var that = this
 				uni.showModal({
@@ -174,22 +181,22 @@
 						console.log('用户点击确定');
 						if(attribute == "hTemper"){
 							that.hTemper = res.content;
-							_hTemper = res.content;
+							getApp().globalData._hTemper = res.content;
 						}else if(attribute=="lTemper"){
 							that.lTemper = res.content;
-							_lTemper = res.content;
+							getApp().globalData._lTemper = res.content;
 						}else if(attribute == "hPh"){
 							that.hPh = res.content;
-							_hPh = res.content;
+							getApp().globalData._hPh = res.content;
 						}else if(attribute == "lPh"){
 							that.lPh = res.content
-							_lPh = res.content;
+							getApp().globalData._lPh = res.content;
 						}else if(attribute == "hOxygen"){
 							that.hOxygen = res.content
-							_hOxygen = res.content;
+							getApp().globalData._hOxygen = res.content;
 						}else if(attribute == "lOxygen"){
 							that.lOxygen = res.content
-							_lOxygen = res.content;
+							getApp().globalData._lOxygen = res.content;
 						}
 						
 					} else if (res.cancel) {
@@ -227,42 +234,6 @@
 								title: "纵向滚动 scrollTop 值已被修改为 0"
 							})
 						},
-						
-			
-			connect() {	
-				    MQTT_OPTIONS.clientId = v4()
-				    var that = this
-				    // #ifdef H5
-				    client = mqtt.connect('ws://' + MQTT_IP, MQTT_OPTIONS)
-					console.log(MQTT_OPTIONS)
-				    // #endif
-				    // #ifdef MP-WEIXIN||APP-PLUS
-				    client = mqtt.connect('wx://' + MQTT_IP, MQTT_OPTIONS)
-				     // #endif
-				     client.on('connect', function() {
-				         console.log('连接成功')
-							client.subscribe("/device/property", function(err) {
-				                if (!err) {
-				                     console.log('订阅成功')
-				                  }
-				             })
-				         }).on('reconnect', function(error) {
-				              console.log('正在重连...', "/device/property")
-				        }).on('error', function(error) {
-				                    console.log('连接失败...', error)
-				           }).on('end', function() {
-				            console.log('连接断开')
-				         }).on('message', function(topic, message) {
-							that.data = JSON.parse(message.toString())
-							that.id= that.data.id
-							that.ph = that.data.params.ph/10.0
-							that.oxygen = that.data.params.oxygen/100.0
-							that.temperature = that.data.params.temperature
-							console.log(that.temperature)
-							
-						})
-				    }
-
 		}
 	}
 </script>
@@ -299,8 +270,6 @@
 		height: 80rpx;
 		display: flex;
 		flex-direction: row;
-		
-	
 	}
 	.box4{
 		width: 100%;
